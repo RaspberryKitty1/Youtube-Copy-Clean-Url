@@ -15,7 +15,7 @@ An extension for Firefox and Chrome designed to address issues encountered when 
 
    ![image](https://github.com/user-attachments/assets/59f32b9f-9443-4cc4-a76d-b732bf893b7e)
 
-### Any Chrome-Based Browser (e.g., Chrome, Edge, Opera, OperaGX)
+### Any Chromium-Based Browser (e.g., Chrome, Edge, Opera, OperaGX)
 
 1. Visit `chrome://extensions/` (or `browser://extensions/` for other browsers) and enable "Developer mode."
 
