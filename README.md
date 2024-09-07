@@ -1,32 +1,34 @@
-# Youtube Copy Clean URL
-An extention for firefox and chrome to solve an announce i had with youtube when sharing links 
-This extion may not work all the time and only for PC not Mobile
+# YouTube Copy Clean URL
 
-## How to install?
+An extension for Firefox and Chrome designed to address issues encountered when sharing YouTube links. Please note that this extension may not work all the time and is only available for PC, not mobile devices.
 
-### Firefox:
-  1. go to [releases](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and click on the .xpi file 
-  1. Allow github to install extntions
+## How to Install
 
-  ![image](https://github.com/user-attachments/assets/97145067-c370-4d1f-b87d-2ee8c0189c24)
- 
-  3. finally just click add
+### Firefox
 
-  ![image](https://github.com/user-attachments/assets/59f32b9f-9443-4cc4-a76d-b732bf893b7e)
+1. Go to the [releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and click on the `.xpi` file.
+2. Allow GitHub to install the extension.
 
-### Any chrome based browser (example Chrome/Edge/Opera/OperaGX):
- 1. Visit `browser://extensions/` and turn on "Developer mode" example `chrome://extensions/`
- 
-![image](https://github.com/user-attachments/assets/c53c8b31-ecb9-4605-943b-f604028d83b3)
- 
- 2. goto [releases](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and download the zip for the extention.
- 3. Extract the zip somwhere on your pc that wont be touched.
- 4. In your browser click load unpacked extention and navivigate to the folder you extracted the files to and click open.
+   ![image](https://github.com/user-attachments/assets/97145067-c370-4d1f-b87d-2ee8c0189c24)
 
-![image](https://github.com/user-attachments/assets/376682ed-92ed-4b9c-bf77-7694f40ae7ca)
+3. Finally, click "Add."
 
-![image](https://github.com/user-attachments/assets/33fc4ede-0d73-4775-be09-629506f3933e)
+   ![image](https://github.com/user-attachments/assets/59f32b9f-9443-4cc4-a76d-b732bf893b7e)
 
- 5. Thats it your done
- 
-![image](https://github.com/user-attachments/assets/5eb362e1-209d-4a1d-aaa9-9d40a924f587)
+### Any Chrome-Based Browser (e.g., Chrome, Edge, Opera, OperaGX)
+
+1. Visit `chrome://extensions/` (or `browser://extensions/` for other browsers) and enable "Developer mode."
+
+   ![image](https://github.com/user-attachments/assets/c53c8b31-ecb9-4605-943b-f604028d83b3)
+
+2. Go to the [releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and download the ZIP file for the extension.
+3. Extract the ZIP file to a location on your PC that won’t be moved or deleted.
+4. In your browser, click "Load unpacked extension" and navigate to the folder where you extracted the files. Click "Open."
+
+   ![image](https://github.com/user-attachments/assets/376682ed-92ed-4b9c-bf77-7694f40ae7ca)
+
+   ![image](https://github.com/user-attachments/assets/33fc4ede-0d73-4775-be09-629506f3933e)
+
+5. That's it, you're done!
+
+   ![image](https://github.com/user-attachments/assets/5eb362e1-209d-4a1d-aaa9-9d40a924f587)
