@@ -1,6 +1,6 @@
 # YouTube Copy Clean URL
 
-An extension for Firefox and Chrome designed to address issues encountered when sharing YouTube links. Please note that this extension may not work all the time and is only available for PC, not mobile devices.
+An extension for Firefox and Chrome designed to address issues encountered when sharing YouTube links. Please note that this extension is only available for PC, not mobile devices.
 
 ## How to Install
 
