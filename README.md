@@ -23,7 +23,7 @@ An extension for Firefox and Chrome designed to address issues encountered when 
 
 2. Go to the [releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and download the ZIP file for the extension.
 3. Extract the ZIP file to a location on your PC that won’t be moved or deleted.
-4. In your browser, click "Load unpacked extension" and navigate to the folder where you extracted the files. Click "Open."
+4. In your browser, click "Load unpacked extension" and navigate to the folder where you extracted the files. Click "select folder"
 
    ![image](https://github.com/user-attachments/assets/376682ed-92ed-4b9c-bf77-7694f40ae7ca)
 
