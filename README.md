@@ -1,6 +1,15 @@
 # YouTube Copy Clean URL
 
-A Firefox and Chrome extension to simplify sharing clean YouTube links. **Note:** This extension is only available for PC, not mobile devices.
+A Firefox and Chrome extension designed to simplify sharing clean YouTube links.  
+**Note:** This extension is only available for **PC**.
+
+## Why This Extension Was Made
+
+This extension was created out of my frustration with YouTube injecting parameters like `?si=` and `?pp=` into copied links, even when using the CleanURL extension. I decided to make my own extension to fix this issue (with some assistance from ChatGPT for the skeleton code, as I didn't know how to make an extension).
+
+## What This Extension Does
+
+This extension removes all unnecessary tracking parameters like `?si=` and `?pp=` and retains the important ones such as `?t=` (for the start time), `?v=` (for the video ID), and `?list=` (for playlist ID).
 
 ## Installation Guide
 

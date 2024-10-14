@@ -4,10 +4,14 @@ function cleanYouTubeUrl(url) {
 
     let videoId = urlObj.searchParams.get('v');
     let timestamp = urlObj.searchParams.get('t');
+    let playlistId = urlObj.searchParams.get('list');  // Capture the playlist ID
 
     let cleanedUrl = 'https://www.youtube.com/watch';
     if (videoId) {
         cleanedUrl += `?v=${videoId}`;
+    }
+    if (playlistId) {
+        cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;  // Append playlist ID
     }
     if (timestamp) {
         cleanedUrl += `&t=${timestamp}`;

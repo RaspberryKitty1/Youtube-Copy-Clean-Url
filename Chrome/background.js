@@ -45,14 +45,19 @@ function cleanYouTubeUrl(url) {
 
     let videoId = urlObj.searchParams.get('v');
     let timestamp = urlObj.searchParams.get('t');
+    let playlistId = urlObj.searchParams.get('list');  // Capture the playlist ID
 
     console.log("Original URL:", url);  // Debug log
     console.log("Video ID:", videoId);  // Debug log
     console.log("Timestamp:", timestamp);  // Debug log
+    console.log("Playlist ID:", playlistId);  // Debug log
 
     let cleanedUrl = 'https://www.youtube.com/watch';
     if (videoId) {
         cleanedUrl += `?v=${videoId}`;
+    }
+    if (playlistId) {
+        cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;  // Append playlist ID
     }
     if (timestamp) {
         cleanedUrl += `&t=${timestamp}`;
