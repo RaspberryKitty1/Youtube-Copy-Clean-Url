@@ -9,7 +9,7 @@ This extension was created out of my frustration with YouTube injecting paramete
 
 ## What This Extension Does
 
-This extension removes all unnecessary tracking parameters like `?si=` and `?pp=` and retains the important ones such as `?t=` (for the start time), `?v=` (for the video ID), and `?list=` (for playlist ID).
+This extension removes all unnecessary tracking parameters like `?si=` and `?pp=` and retains the important ones such as `?t=` (for the timestamp), `?v=` (for the video ID), `?list=` (for playlist ID) and `?index=` (for playlist index).
 
 ## Installation Guide
 

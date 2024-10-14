@@ -2,19 +2,23 @@
 function cleanYouTubeUrl(url) {
     let urlObj = new URL(url);
 
-    let videoId = urlObj.searchParams.get('v');
-    let timestamp = urlObj.searchParams.get('t');
+    let videoId = urlObj.searchParams.get('v');   // Capture the video ID
+    let timestamp = urlObj.searchParams.get('t');  // Capture the timestamp
     let playlistId = urlObj.searchParams.get('list');  // Capture the playlist ID
+    let playlistIndex = urlObj.searchParams.get('index');  // Capture the playlist index
 
     let cleanedUrl = 'https://www.youtube.com/watch';
     if (videoId) {
-        cleanedUrl += `?v=${videoId}`;
+        cleanedUrl += `?v=${videoId}`;  // Append video ID
+    }
+    if (timestamp) {
+        cleanedUrl += `&t=${timestamp}`;  // Append timestamp
     }
     if (playlistId) {
         cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;  // Append playlist ID
     }
-    if (timestamp) {
-        cleanedUrl += `&t=${timestamp}`;
+    if (playlistIndex) {
+        cleanedUrl += `&index=${playlistIndex}`;  // Append playlist index
     }
 
     return cleanedUrl;

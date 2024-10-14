@@ -43,24 +43,29 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 function cleanYouTubeUrl(url) {
     let urlObj = new URL(url);
 
-    let videoId = urlObj.searchParams.get('v');
-    let timestamp = urlObj.searchParams.get('t');
+    let videoId = urlObj.searchParams.get('v');   // Capture the video ID
+    let timestamp = urlObj.searchParams.get('t');   // Capture the timestamp
     let playlistId = urlObj.searchParams.get('list');  // Capture the playlist ID
+    let playlistIndex = urlObj.searchParams.get('index');  // Capture the playlist index
 
     console.log("Original URL:", url);  // Debug log
     console.log("Video ID:", videoId);  // Debug log
     console.log("Timestamp:", timestamp);  // Debug log
     console.log("Playlist ID:", playlistId);  // Debug log
+    console.log("Playlist Index:", playlistIndex);  // Debug log
 
     let cleanedUrl = 'https://www.youtube.com/watch';
     if (videoId) {
-        cleanedUrl += `?v=${videoId}`;
+        cleanedUrl += `?v=${videoId}`;  // Append video ID
+    }
+    if (timestamp) {
+        cleanedUrl += `&t=${timestamp}`;  // Append timestamp
     }
     if (playlistId) {
         cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;  // Append playlist ID
     }
-    if (timestamp) {
-        cleanedUrl += `&t=${timestamp}`;
+    if (playlistIndex) {
+        cleanedUrl += `&index=${playlistIndex}`;  // Append playlist index
     }
 
     console.log("Cleaned URL:", cleanedUrl);  // Debug log
