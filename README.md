@@ -1,34 +1,25 @@
 # YouTube Copy Clean URL
 
-An extension for Firefox and Chrome designed to address issues encountered when sharing YouTube links. Please note that this extension is only available for PC, not mobile devices.
+A Firefox and Chrome extension to simplify sharing clean YouTube links. **Note:** This extension is only available for PC, not mobile devices.
 
-## How to Install
+## Installation Guide
 
 ### Firefox
 
-1. Go to the [releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and click on the `.xpi` file.
-2. Allow GitHub to install the extension.
-
+1. Go to the [Releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and click the `.xpi` file.
+2. Allow GitHub to install the extension.  
    ![image](https://github.com/user-attachments/assets/97145067-c370-4d1f-b87d-2ee8c0189c24)
-
-3. Finally, click "Add."
-
+3. Click "Add" to confirm.  
    ![image](https://github.com/user-attachments/assets/59f32b9f-9443-4cc4-a76d-b732bf893b7e)
 
-### Any Chromium-Based Browser (e.g., Chrome, Edge, Opera, OperaGX)
+### Chromium-Based Browsers (Chrome, Edge, Opera, etc.)
 
-1. Visit `chrome://extensions/` (or `browser://extensions/` for other browsers) and enable "Developer mode."
-
+1. Open the Extensions page (`chrome://extensions/` or `browser://extensions/` for other browsers) and enable **Developer mode**.  
    ![image](https://github.com/user-attachments/assets/c53c8b31-ecb9-4605-943b-f604028d83b3)
-
-2. Go to the [releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases) and download the ZIP file for the extension.
-3. Extract the ZIP file to a location on your PC that won’t be moved or deleted.
-4. In your browser, click "Load unpacked extension" and navigate to the folder where you extracted the files. Click "select folder"
-
-   ![image](https://github.com/user-attachments/assets/376682ed-92ed-4b9c-bf77-7694f40ae7ca)
-
+2. Download the ZIP file from the [Releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases).
+3. Extract the ZIP file to a folder you won't move or delete.
+4. In the browser, click **Load unpacked** and select the folder with the extracted files.  
+   ![image](https://github.com/user-attachments/assets/376682ed-92ed-4b9c-bf77-7694f40ae7ca)  
    ![image](https://github.com/user-attachments/assets/33fc4ede-0d73-4775-be09-629506f3933e)
-
-5. That's it, you're done!
-
+5. Done! The extension is now installed.  
    ![image](https://github.com/user-attachments/assets/5eb362e1-209d-4a1d-aaa9-9d40a924f587)
