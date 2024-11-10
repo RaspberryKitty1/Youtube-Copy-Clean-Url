@@ -9,7 +9,7 @@ This extension was created out of my frustration with YouTube injecting paramete
 
 ## What This Extension Does
 
-This extension removes all unnecessary tracking parameters like `?si=` and `?pp=` and retains the important ones such as `?t=` (for the timestamp), `?v=` (for the video ID), `?list=` (for playlist ID) and `?index=` (for playlist index).
+This extension removes all unnecessary tracking parameters like `?si=` and `?pp=` and retains the important ones such as `?t=` (for the timestamp), `?v=` (for the video ID), `?list=` (for playlist ID), and `?index=` (for playlist index).
 
 ## Installation Guide
 
@@ -32,3 +32,17 @@ This extension removes all unnecessary tracking parameters like `?si=` and `?pp=
    ![image](https://github.com/user-attachments/assets/33fc4ede-0d73-4775-be09-629506f3933e)
 5. Done! The extension is now installed.  
    ![image](https://github.com/user-attachments/assets/5eb362e1-209d-4a1d-aaa9-9d40a924f587)
+
+## How to Use
+
+1. Right-click on any YouTube link.
+2. From the context menu, select **Copy Clean YouTube Link**. The cleaned link will be copied to your clipboard.  
+   ![image](https://github.com/user-attachments/assets/8339cfc3-e814-4e90-8097-e0f04214ee30)
+
+## New Settings Menu
+
+- Click the extension icon in your extension list to open the settings menu.
+- Use the toggles to enable or disable options for **Timestamp** and **Playlist**.
+   - Enabling the **Playlist** setting will also disable the `?index=` parameter from the URL.  
+   ![image](https://github.com/user-attachments/assets/e93750b8-b7c4-41a0-a3e2-e8801ac0c2a3)
+- Settings should sync across devices, though this is not fully guaranteed.
