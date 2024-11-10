@@ -1,37 +1,41 @@
 // Create context menu item
-chrome.contextMenus.create({
-    id: 'copy-clean-link',
-    title: 'Copy Clean YouTube Link',
-    contexts: ['link']  // Use 'link' to get the URL of the link that was right-clicked
-}, () => {
-    if (chrome.runtime.lastError) {
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.contextMenus.create({
+      id: 'copy-clean-link',
+      title: 'Copy Clean YouTube Link',
+      contexts: ['link']
+    }, () => {
+      if (chrome.runtime.lastError) {
         console.error('Context menu creation failed:', chrome.runtime.lastError);
-    } else {
+      } else {
         console.log('Context menu created successfully');
-    }
+      }
+    });
 });
+
 
 // Handle context menu click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === 'copy-clean-link') {
         console.log('Context menu clicked');
         
-        // Get the URL of the link that was right-clicked
         let clickedUrl = info.linkUrl;
-        console.log('Clicked URL:', clickedUrl);  // Debug log
+        console.log('Clicked URL:', clickedUrl);
 
         if (clickedUrl) {
-            let cleanUrl = cleanYouTubeUrl(clickedUrl);
-            console.log('Clean URL:', cleanUrl);  // Debug log
+            // Load settings and then clean the URL
+            chrome.storage.sync.get(["includeTimestamp", "includePlaylist"], (settings) => {
+                let cleanUrl = cleanYouTubeUrl(clickedUrl, settings);
+                console.log('Clean URL:', cleanUrl);
 
-            // Check if the content script is already injected
-            chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                files: ['content.js']
-            }).then(() => {
-                chrome.tabs.sendMessage(tab.id, { action: "copyUrl", cleanUrl: cleanUrl });
-            }).catch(err => {
-                console.error('Failed to inject content script:', err);
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: ['content.js']
+                }).then(() => {
+                    chrome.tabs.sendMessage(tab.id, { action: "copyUrl", cleanUrl: cleanUrl });
+                }).catch(err => {
+                    console.error('Failed to inject content script:', err);
+                });
             });
         } else {
             console.error('No URL found in context menu');
@@ -39,36 +43,30 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     }
 });
 
-// Function to clean YouTube URL
-function cleanYouTubeUrl(url) {
+// Function to clean YouTube URL based on user settings
+function cleanYouTubeUrl(url, settings) {
     let urlObj = new URL(url);
 
-    let videoId = urlObj.searchParams.get('v');   // Capture the video ID
-    let timestamp = urlObj.searchParams.get('t');   // Capture the timestamp
-    let playlistId = urlObj.searchParams.get('list');  // Capture the playlist ID
-    let playlistIndex = urlObj.searchParams.get('index');  // Capture the playlist index
-
-    console.log("Original URL:", url);  // Debug log
-    console.log("Video ID:", videoId);  // Debug log
-    console.log("Timestamp:", timestamp);  // Debug log
-    console.log("Playlist ID:", playlistId);  // Debug log
-    console.log("Playlist Index:", playlistIndex);  // Debug log
+    let videoId = urlObj.searchParams.get('v');
+    let timestamp = urlObj.searchParams.get('t');
+    let playlistId = urlObj.searchParams.get('list');
+    let playlistIndex = urlObj.searchParams.get('index');
 
     let cleanedUrl = 'https://www.youtube.com/watch';
     if (videoId) {
-        cleanedUrl += `?v=${videoId}`;  // Append video ID
+        cleanedUrl += `?v=${videoId}`;
     }
-    if (timestamp) {
-        cleanedUrl += `&t=${timestamp}`;  // Append timestamp
+    if (settings.includeTimestamp && timestamp) {
+        cleanedUrl += `&t=${timestamp}`;
     }
-    if (playlistId) {
-        cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;  // Append playlist ID
+    if (settings.includePlaylist && playlistId) {
+        cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;
+        if (playlistIndex) {
+            cleanedUrl += `&index=${playlistIndex}`;
+        }
     }
-    if (playlistIndex) {
-        cleanedUrl += `&index=${playlistIndex}`;  // Append playlist index
-    }
-
-    console.log("Cleaned URL:", cleanedUrl);  // Debug log
 
     return cleanedUrl;
 }
+
+  
