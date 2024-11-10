@@ -1,17 +1,13 @@
 {
   "manifest_version": 2,
   "name": "YouTube Link Cleaner",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Remove unnecessary parameters from YouTube URLs, keeping only video ID and timestamp.",
   "author": "raspberrykitty1",
-  "permissions": [
-    "clipboardWrite",
-    "activeTab"
-  ],
+  "permissions": ["contextMenus", "clipboardWrite", "activeTab"],
+
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "browser_action": {
@@ -27,16 +23,6 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://www.youtube.com/*"
-      ],
-      "js": [
-        "content.js"
-      ]
-    }
-  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "youtube-link-cleaner-1e2f3d4c-5b6a-7890-1234-56789abcdef0@myextensions.com"
