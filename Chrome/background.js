@@ -1,18 +1,17 @@
 // Create context menu item
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
-      id: 'copy-clean-link',
-      title: 'Copy Clean YouTube Link',
-      contexts: ['link']
+        id: 'copy-clean-link',
+        title: 'Copy Clean YouTube Link',
+        contexts: ['link']
     }, () => {
-      if (chrome.runtime.lastError) {
-        console.error('Context menu creation failed:', chrome.runtime.lastError);
-      } else {
-        console.log('Context menu created successfully');
-      }
+        if (chrome.runtime.lastError) {
+            console.error('Context menu creation failed:', chrome.runtime.lastError);
+        } else {
+            console.log('Context menu created successfully');
+        }
     });
 });
-
 
 // Handle context menu click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -24,7 +23,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
         if (clickedUrl) {
             // Load settings and then clean the URL
-            chrome.storage.sync.get(["includeTimestamp", "includePlaylist"], (settings) => {
+            chrome.storage.sync.get(["includeTimestamp", "includePlaylist", "shortenLink"], (settings) => {
                 let cleanUrl = cleanYouTubeUrl(clickedUrl, settings);
                 console.log('Clean URL:', cleanUrl);
 
@@ -52,21 +51,26 @@ function cleanYouTubeUrl(url, settings) {
     let playlistId = urlObj.searchParams.get('list');
     let playlistIndex = urlObj.searchParams.get('index');
 
-    let cleanedUrl = 'https://www.youtube.com/watch';
-    if (videoId) {
-        cleanedUrl += `?v=${videoId}`;
-    }
-    if (settings.includeTimestamp && timestamp) {
-        cleanedUrl += `&t=${timestamp}`;
-    }
-    if (settings.includePlaylist && playlistId) {
-        cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;
-        if (playlistIndex) {
-            cleanedUrl += `&index=${playlistIndex}`;
+    // Check if the shortenLink setting is enabled
+    let cleanedUrl = settings.shortenLink ? `https://youtu.be/${videoId}` : `https://www.youtube.com/watch`;
+    
+    if (!settings.shortenLink) {
+        if (videoId) {
+            cleanedUrl += `?v=${videoId}`;
         }
+        if (settings.includeTimestamp && timestamp) {
+            cleanedUrl += `&t=${timestamp}`;
+        }
+        if (settings.includePlaylist && playlistId) {
+            cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;
+            if (playlistIndex) {
+                cleanedUrl += `&index=${playlistIndex}`;
+            }
+        }
+    } else if (settings.includeTimestamp && timestamp) {
+        // Add timestamp to shortened link if enabled
+        cleanedUrl += `?t=${timestamp}`;
     }
 
     return cleanedUrl;
 }
-
-  

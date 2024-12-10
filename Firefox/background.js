@@ -17,17 +17,25 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 
     if (videoId) {
       // Load settings to determine which parameters to include
-      browser.storage.sync.get(["includeTimestamp", "includePlaylist"]).then((settings) => {
-        let cleanUrl = `https://www.youtube.com/watch?v=${videoId}`;
+      browser.storage.sync.get(["includeTimestamp", "includePlaylist", "shortenLink"]).then((settings) => {
+        // Determine whether to shorten the link
+        let cleanUrl = settings.shortenLink ? `https://youtu.be/${videoId}` : `https://www.youtube.com/watch?v=${videoId}`;
         
         // Add optional parameters if they exist and if the settings allow it
-        if (settings.includeTimestamp && timestamp) {
-          cleanUrl += `&t=${timestamp}`;
-        }
-        if (settings.includePlaylist && playlistId) {
-          cleanUrl += `&list=${playlistId}`;
-          if (playlistIndex) {
-            cleanUrl += `&index=${playlistIndex}`;
+        if (settings.shortenLink) {
+          // Only include timestamp with shortened links
+          if (settings.includeTimestamp && timestamp) {
+            cleanUrl += `?t=${timestamp}`;
+          }
+        } else {
+          if (settings.includeTimestamp && timestamp) {
+            cleanUrl += `&t=${timestamp}`;
+          }
+          if (settings.includePlaylist && playlistId) {
+            cleanUrl += `&list=${playlistId}`;
+            if (playlistIndex) {
+              cleanUrl += `&index=${playlistIndex}`;
+            }
           }
         }
 

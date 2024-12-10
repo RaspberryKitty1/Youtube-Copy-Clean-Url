@@ -13,12 +13,13 @@
     label {
       display: block;
       margin-bottom: 10px;
+      color: #000000
     }
 
     /* Dark Theme (using prefers-color-scheme media query) */
     @media (prefers-color-scheme: dark) {
       body {
-        background-color: #000000;
+        background-color: #121212;
         color: #ffffff;
       }
       label {
@@ -35,6 +36,9 @@
   </label>
   <label>
     <input type="checkbox" id="includePlaylist"> Include Playlist
+  </label>
+  <label>
+    <input type="checkbox" id="shortenLink"> Shorten Link
   </label>
   <button id="saveBtn">Save Settings</button>
 
