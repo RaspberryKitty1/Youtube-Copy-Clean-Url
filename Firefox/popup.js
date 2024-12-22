@@ -4,20 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const shortenLink = document.getElementById("shortenLink");
 
     // Load stored settings
-    browser.storage.sync.get(["includeTimestamp", "includePlaylist"]).then((data) => {
-      includeTimestamp.checked = data.includeTimestamp ?? true;  // Default to true
-      includePlaylist.checked = data.includePlaylist ?? true;    // Default to true
-      shortenLink.checked = data.shortenLink ?? true; // Default to true
+    browser.storage.sync.get(["includeTimestamp", "includePlaylist", "shortenLink"]).then((data) => {
+        includeTimestamp.checked = data.includeTimestamp ?? true; // Default to true
+        includePlaylist.checked = data.includePlaylist ?? true;   // Default to true
+        shortenLink.checked = data.shortenLink ?? true;           // Default to true
     });
 
-    // Save settings when the Save button is clicked
-    document.getElementById("saveBtn").addEventListener("click", () => {
-        browser.storage.sync.set({
-          includeTimestamp: includeTimestamp.checked,
-          includePlaylist: includePlaylist.checked,
-          shortenLink: shortenLink.checked
-        }).then(() => {
-          alert("Settings saved!");
-        });
+    // Save settings automatically when switches are toggled
+    includeTimestamp.addEventListener("change", () => {
+        browser.storage.sync.set({ includeTimestamp: includeTimestamp.checked });
+    });
+
+    includePlaylist.addEventListener("change", () => {
+        browser.storage.sync.set({ includePlaylist: includePlaylist.checked });
+    });
+
+    shortenLink.addEventListener("change", () => {
+        browser.storage.sync.set({ shortenLink: shortenLink.checked });
     });
 });
+

@@ -1,23 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     const includeTimestamp = document.getElementById("includeTimestamp");
     const includePlaylist = document.getElementById("includePlaylist");
+    const shortenLink = document.getElementById("shortenLink");
 
     // Load stored settings
-    chrome.storage.sync.get(["includeTimestamp", "includePlaylist"], (data) => {
-        includeTimestamp.checked = data.includeTimestamp ?? true;  // Default to true
-        includePlaylist.checked = data.includePlaylist ?? true;    // Default to true
-        shortenLink.checked = data.shortenLink ?? true; // Default to true
-
+    chrome.storage.sync.get(["includeTimestamp", "includePlaylist", "shortenLink"], (data) => {
+        includeTimestamp.checked = data.includeTimestamp ?? true; // Default to true
+        includePlaylist.checked = data.includePlaylist ?? true;  // Default to true
+        shortenLink.checked = data.shortenLink ?? true;          // Default to true
     });
 
-    // Save settings when the Save button is clicked
-    document.getElementById("saveBtn").addEventListener("click", () => {
-        chrome.storage.sync.set({
-            includeTimestamp: includeTimestamp.checked,
-            includePlaylist: includePlaylist.checked,
-            shortenLink: shortenLink.checked
-        }, () => {
-            alert("Settings saved!");
-        });
+    // Save settings automatically when switches are toggled
+    includeTimestamp.addEventListener("change", () => {
+        chrome.storage.sync.set({ includeTimestamp: includeTimestamp.checked });
+    });
+
+    includePlaylist.addEventListener("change", () => {
+        chrome.storage.sync.set({ includePlaylist: includePlaylist.checked });
+    });
+
+    shortenLink.addEventListener("change", () => {
+        chrome.storage.sync.set({ shortenLink: shortenLink.checked });
     });
 });
+
