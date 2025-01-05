@@ -24,3 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const versionElement = document.getElementById("version");
+  
+    // Fetch the manifest and set the version
+    const manifest = browser.runtime.getManifest();
+    versionElement.textContent = `v${manifest.version}`;
+  });
+  
+  
+  
