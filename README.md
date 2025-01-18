@@ -45,5 +45,6 @@ This extension removes all unnecessary tracking parameters like `?si=` and `&pp=
 - Use the toggles to enable or disable options for **Timestamp**, **Playlist** and **Shorten Link**.
    - Enabling the **Playlist** setting will also disable the `&index=` parameter from the URL.  
 - Settings should sync across devices, though this is not fully guaranteed.
-![image](https://github.com/user-attachments/assets/3091e5f3-dbfd-4871-a4ec-9c6f6b278fb7)
+![image](https://github.com/user-attachments/assets/e77cbebc-57b1-4a4d-b4f7-6b8ca802b0c9)
+
 
