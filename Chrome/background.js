@@ -45,32 +45,27 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 // Function to clean YouTube URL based on user settings
 function cleanYouTubeUrl(url, settings) {
     let urlObj = new URL(url);
-
     let videoId = urlObj.searchParams.get('v');
     let timestamp = urlObj.searchParams.get('t');
     let playlistId = urlObj.searchParams.get('list');
     let playlistIndex = urlObj.searchParams.get('index');
 
-    // Check if the shortenLink setting is enabled
-    let cleanedUrl = settings.shortenLink ? `https://youtu.be/${videoId}` : `https://www.youtube.com/watch`;
-    
-    if (!settings.shortenLink) {
-        if (videoId) {
-            cleanedUrl += `?v=${videoId}`;
+    // Default URL structure
+    let cleanedUrl = settings.shortenLink ? `https://youtu.be/${videoId}` : `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Only include timestamp with full URLs or shortened URLs as needed
+    if (!settings.shortenLink && settings.includeTimestamp && timestamp) {
+        cleanedUrl += `&t=${timestamp}`;
+    }
+
+    // Include playlist and index if set in settings
+    if (settings.includePlaylist && playlistId) {
+        cleanedUrl += `&list=${playlistId}`;
+        if (playlistIndex) {
+            cleanedUrl += `&index=${playlistIndex}`;
         }
-        if (settings.includeTimestamp && timestamp) {
-            cleanedUrl += `&t=${timestamp}`;
-        }
-        if (settings.includePlaylist && playlistId) {
-            cleanedUrl += `${videoId ? '&' : '?'}list=${playlistId}`;
-            if (playlistIndex) {
-                cleanedUrl += `&index=${playlistIndex}`;
-            }
-        }
-    } else if (settings.includeTimestamp && timestamp) {
-        // Add timestamp to shortened link if enabled
-        cleanedUrl += `?t=${timestamp}`;
     }
 
     return cleanedUrl;
 }
+
