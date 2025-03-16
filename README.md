@@ -43,9 +43,9 @@ Frustrated by this, I created my own extension to ensure clean, shareable YouTub
 
 - **Chrome:** `chrome://extensions/`  
 - **Edge/Opera/Brave:** `browser://extensions/`  
-   ![image](https://github.com/user-attachments/assets/c53c8b31-ecb9-4605-943b-f604028d83b3)  
 
 2️⃣ **Enable Developer Mode** (toggle in the top-right corner).  
+   ![image](https://github.com/user-attachments/assets/c53c8b31-ecb9-4605-943b-f604028d83b3)  
 
 3️⃣ **Download the ZIP file** from the [Releases page](https://github.com/RaspberryKitty1/Youtube-Copy-Clean-Url/releases).  
 
