@@ -20,7 +20,7 @@ Frustrated by this, I created my own extension to ensure clean, shareable YouTub
 - `?v=` (Video ID)  
 - `&t=` (Timestamp)  
 - `&list=` (Playlist ID)  
-- `&index=` (Playlist Index) *(Optional, can be disabled in settings)*  
+- `&index=` (Playlist Index) 
 ✔ **Simple Right-Click Copy**: Easily grab a clean YouTube link from the context menu.  
 
 ---
