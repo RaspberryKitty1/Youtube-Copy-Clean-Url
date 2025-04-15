@@ -1,7 +1,8 @@
 # **YouTube Copy Clean URL**  
 
 A **Firefox** and **Chrome** extension that removes unnecessary tracking parameters from YouTube links.  
-> [!NOTE] This extension is only available for PC (Windows, macOS, Linux).  
+> [!NOTE] 
+> This extension is only available for PC (Windows, macOS, Linux).  
 
 ---
 
